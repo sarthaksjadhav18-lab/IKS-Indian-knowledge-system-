@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-display: 'Cinzel', serif;
+    --font-script: 'Kalam', cursive;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0b0f17;
+    color: #e2e8f0;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-script {
+    font-family: var(--font-script);
+  }
+}
+
+/* Custom glow and spotlight effects echoing the visual in the user image */
+.spotlight-cone {
+  background: radial-gradient(
+    ellipse at 90% 40%,
+    rgba(253, 224, 71, 0.45) 0%,
+    rgba(245, 158, 11, 0.25) 30%,
+    rgba(217, 119, 6, 0.1) 60%,
+    transparent 80%
+  );
+}
+
+.parchment-texture {
+  background-color: #fbf9f5;
+  background-image: radial-gradient(#e2d9cc 0.75px, transparent 0.75px);
+  background-size: 16px 16px;
+}
+
+/* Subtle animation for the spotlight beam */
+@keyframes beamPulse {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-beam {
+  animation: beamPulse 4s ease-in-out infinite;
+}
+
+@keyframes kenburns {
+  0% {
+    transform: scale(1) translate(0%, 0%);
+  }
+  50% {
+    transform: scale(1.12) translate(-2%, -2%);
+  }
+  100% {
+    transform: scale(1.05) translate(1%, -1%);
+  }
+}
+
+.animate-kenburns {
+  animation: kenburns 12s ease-in-out infinite alternate;
+}
+

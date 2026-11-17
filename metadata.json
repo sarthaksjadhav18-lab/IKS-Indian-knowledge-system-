@@ -1,0 +1,6 @@
+{
+  "name": "Exploring India's Knowledge System",
+  "description": "An immersive cultural and scientific gateway into the Indian Knowledge System (IKS), exploring ancient mathematics, astronomy, metallurgy, medicine, architecture, and linguistics through interactive simulations and archival scholarship.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

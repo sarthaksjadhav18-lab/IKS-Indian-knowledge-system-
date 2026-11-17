@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exploring India's Knowledge System - Project History & Prompt Dossier</title>
+  <style>
+    :root {
+      --navy: #0f172a;
+      --gold: #b45309;
+      --maroon: #881337;
+      --slate: #334155;
+      --light-bg: #f8fafc;
+      --border: #e2e8f0;
+      --amber: #d97706;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--slate);
+      background-color: #f1f5f9;
+      line-height: 1.6;
+      padding: 30px 15px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px 50px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border);
+    }
+    .top-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: #92400e;
+    }
+    .btn-secondary {
+      background: var(--navy);
+    }
+    .btn-secondary:hover {
+      background: #1e293b;
+    }
+    .header-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    h1 {
+      font-size: 26px;
+      color: var(--navy);
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      font-size: 15px;
+      color: var(--maroon);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .meta-bar {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--gold);
+    }
+    .summary-card {
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--maroon);
+      padding: 18px 22px;
+      border-radius: 6px;
+      margin-bottom: 30px;
+    }
+    .summary-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--maroon);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 18px;
+      color: var(--navy);
+      margin-top: 35px;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .prompt-block {
+      background: #fafafa;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+    }
+    .prompt-header {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--maroon);
+      margin-bottom: 8px;
+    }
+    .prompt-section {
+      font-size: 13.5px;
+      margin-bottom: 6px;
+    }
+    .prompt-label {
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .prompt-impl {
+      color: #166534;
+      font-weight: 600;
+    }
+    .link-pill {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 15px;
+    }
+    .asset-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .asset-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      background: #e2e8f0;
+    }
+    .asset-content {
+      padding: 12px;
+      font-size: 12px;
+    }
+    .asset-name {
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+      font-family: monospace;
+      font-size: 11px;
+    }
+    .asset-role {
+      color: #475569;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      background: #ecfdf5;
+      color: #047857;
+      margin-top: 4px;
+    }
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        border: none;
+        padding: 20px 0;
+        max-width: 100%;
+      }
+      .top-actions {
+        display: none;
+      }
+      .prompt-block {
+        break-inside: avoid;
+      }
+      .asset-card {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-actions">
+      <div>
+        <a href="/" class="btn btn-secondary">← Back to IKS Portal</a>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button onclick="window.print()" class="btn btn-secondary">🖨️ Print / Save as PDF</button>
+        <a href="/IKS_Project_History_And_Changelog.pdf" download="IKS_Project_History_And_Changelog.pdf" class="btn">📥 Download Official PDF</a>
+      </div>
+    </div>
+
+    <div class="header-tag">EXPLORING INDIA'S KNOWLEDGE SYSTEM (IKS)</div>
+    <h1>Comprehensive Project History, Prompt Log & Changelog</h1>
+    <div class="subtitle">Complete Technical & Curatorial Dossier with Uploaded Visual Assets</div>
+    <div class="meta-bar">
+      <strong>User:</strong> Sarthak S. Jadhav (sarthak.s.jadhav18@gmail.com) &nbsp;|&nbsp;
+      <strong>Platform:</strong> Google AI Studio &nbsp;|&nbsp;
+      <strong>Deployment:</strong> Google Cloud Run (Read-Only Public Mode)
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-title">Executive Overview</div>
+      <p style="font-size: 14px;">
+        This archive details every user instruction, prompt submission, image modification, architectural transformation, and optimization step executed during the development of <em>Exploring India's Knowledge System</em>. The application presents an authentic celebration of classical Indian scientific treatises, binary combinatorial metrics (Acharya Pingala), formal grammatical semantic networks (Panini & Rick Briggs 1985 NASA AI research), and the Maratha history of the House of Bhosale.
+      </p>
+    </div>
+
+    <h2>1. Live Access & Sharing Endpoints</h2>
+    <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 18px 20px; font-size: 13.5px;">
+      <p style="margin-bottom: 8px;"><strong>🌐 Public Full-Screen URL:</strong> <a href="https://ais-pre-vimscteamlu2z33ln7qyh6-418921116665.asia-southeast1.run.app" target="_blank" class="link-pill">https://ais-pre-vimscteamlu2z33ln7qyh6-418921116665.asia-southeast1.run.app</a></p>
+      <p style="margin-bottom: 8px;"><strong>🛠️ Workspace Dev URL:</strong> <a href="https://ais-dev-vimscteamlu2z33ln7qyh6-418921116665.asia-southeast1.run.app" target="_blank" class="link-pill">https://ais-dev-vimscteamlu2z33ln7qyh6-418921116665.asia-southeast1.run.app</a></p>
+      <p style="margin-bottom: 8px;"><strong>📄 Direct PDF Download:</strong> <a href="/IKS_Project_History_And_Changelog.pdf" class="link-pill">/IKS_Project_History_And_Changelog.pdf</a></p>
+      <p><strong>🔒 Security Policy:</strong> Fully locked in presentation mode. Public visitors can navigate, explore modals, test simulators, and inspect catalog epics with zero ability to mutate data or alter layouts.</p>
+    </div>
+
+    <h2>2. Chronological Prompt & Instruction History</h2>
+
+    <div class="prompt-block">
+      <div class="prompt-header">Prompt 1: Sanskrit & Computer Language (Box 7)</div>
+      <div class="prompt-section">
+        <span class="prompt-label">User Request:</span> Replace box 7 title and text with "RELATION BETWEEN SANSKRIT AND COMPUTER LANGUAGE" in Sanskrit and English. When clicked, display:
+        <em>"• Laghu and Guru: In the 3rd century BCE, the ancient Indian scholar Acharya Pingala wrote the Chandaḥśāstra, a treatise on Sanskrit poetic meters. • Syllable Mapping: He analyzed poetic rhythms using two types of syllables: laghu (light/short sound) and guru (heavy/long sound). • Powers of 2 and Combinatorics: Pingala mapped these short and long sounds to a system that functions identically to binary 0s and 1s. He developed algorithmic procedures (Prastara) to find all possible combinations of these syllables for a given meter (2^n combinations), which parallels modern binary mathematics and bit sequences (such as an 8-syllable verse mirroring an 8-bit byte)."</em>
+        Include Read More button to <a href="https://shikshanam.in/acharya-pingala-the-ancient-sage-who-paved-the-way-for-modern-computers/" target="_blank" class="link-pill">shikshanam.in</a> and cite the source.
+      </div>
+      <div class="prompt-section">
+        <span class="prompt-impl">Implementation:</span> Configured Box 7 hotspot with bilingual title (संस्कृतम् सङ्गणकभाषा च), full Pingala binary meter content, and outbound academic citation link.
+      </div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-header">Prompt 2: Sanskrit & Artificial Intelligence (Box 8)</div>
+      <div class="prompt-section">
+        <span class="prompt-label">User Request:</span> Replace box 8 title with "RELATION BETWEEN SANSKRIT AND ARTIFICIAL INTELLIGENCE" in Sanskrit and English. When clicked, display:
+        <em>"• The 1985 Paper: The claim traces back to a 1985 paper titled 'Knowledge Representation in Sanskrit and Artificial Intelligence' published in AI Magazine. • The Author: It was written by Rick Briggs, a researcher associated with NASA Ames Research Center. • What Briggs Actually Said: Briggs did not claim that Sanskrit is a computer programming language. Instead, he explored how ancient Indian grammarians—specifically Pāṇini (around 500 BCE)—created a highly structured, rule-based system of grammar that avoids ambiguity in ways similar to modern AI semantic networks."</em>
+        Include Read More button to <a href="https://x.com/typingvanara/status/1842678680784715892" target="_blank" class="link-pill">x.com/typingvanara</a> and cite source.
+      </div>
+      <div class="prompt-section">
+        <span class="prompt-impl">Implementation:</span> Configured Box 8 hotspot with bilingual title (संस्कृतम् कृत्रिमबुद्धिमत्ता च), deep historical context on Rick Briggs' NASA research paper and Panini's formal grammar, along with source attribution.
+      </div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-header">Prompt 3: Removal of Secondary Badges/Tags</div>
+      <div class="prompt-section">
+        <span class="prompt-label">User Request:</span> Remove secondary chips and tag badges across Group 1, 2, 3, and 4 cards (8 specific CSS selector elements).
+      </div>
+      <div class="prompt-section">
+        <span class="prompt-impl">Implementation:</span> Cleaned up card overlays, eliminating distracting secondary pill elements to maintain an authentic parchment treatise design.
+      </div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-header">Prompt 4: Hero Element Pruning</div>
+      <div class="prompt-section">
+        <span class="prompt-label">User Request:</span> Remove superfluous badge element in hero section (CSS selector 1: section#hero > div > div:nth-of-type(2) > div > div:nth-of-type(10)).
+      </div>
+      <div class="prompt-section">
+        <span class="prompt-impl">Implementation:</span> Pruned redundant secondary badge in HeritageHero.tsx for streamlined visual clarity.
+      </div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-header">Prompt 5: Removal of Group 5 Placeholder</div>
+      <div class="prompt-section">
+        <span class="prompt-label">User Request:</span> Remove Group 5 placeholder box (CSS selector 1: div#group-5).
+      </div>
+      <div class="prompt-section">
+        <span class="prompt-impl">Implementation:</span> Removed empty Group 5 placeholder and adjusted catalog grid boundaries.
+      </div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-header">Prompt 6: Truncate Catalog to Boxes 1–8 (Delete Boxes 9 & 10)</div>
+      <div class="prompt-section">
+        <span class="prompt-label">User Request:</span> KEEP THIS TILL BOX 7 & 8, DELETE THE BOX 9 & 10.
+      </div>
+      <div class="prompt-section">
+        <span class="prompt-impl">Implementation:</span> Cropped base canvas <code>interface_idea_1fa4c7b9.jpg</code> from 1354px to 1128px height, permanently terminating right below Box 7 & 8. Removed Group 5 data in ChapterCatalogView.tsx.
+      </div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-header">Prompt 7 & 8: Publishing Readiness & Full-Screen Access</div>
+      <div class="prompt-section">
+        <span class="prompt-label">User Request:</span> Generate a URL so that this is visible to everyone in full screen without anyone making changes. Verify if website is ready to publish.
+      </div>
+      <div class="prompt-section">
+        <span class="prompt-impl">Implementation:</span> Verified Cloud Run production URLs, full-screen viewport optimization, and confirmed read-only public status.
+      </div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-header">Prompt 9: Production Build Compression (< 250 MB Limit)</div>
+      <div class="prompt-section">
+        <span class="prompt-label">User Request:</span> Publishing failed because production build was larger than 250 MB. Reduce build size well under 250 MB without losing any feature or behavior.
+      </div>
+      <div class="prompt-section">
+        <span class="prompt-impl">Implementation:</span> Swept repo: deleted 22 unreferenced raw assets (~80 MB), transcoded 23 heavy PNGs into web-optimized ~180-210 KB JPEGs. Reduced dist build from 90 MB down to 8.5 MB (~91% size reduction).
+      </div>
+    </div>
+
+    <div class="prompt-block">
+      <div class="prompt-header">Prompt 10: Complete Prompt History & PDF Export</div>
+      <div class="prompt-section">
+        <span class="prompt-label">User Request:</span> Download all this prompt history and send me in form of pdf along with images uploaded, changes made, etc.
+      </div>
+      <div class="prompt-section">
+        <span class="prompt-impl">Implementation:</span> Generated official multi-page PDF document (<code>/IKS_Project_History_And_Changelog.pdf</code>) and interactive web dossier page with direct one-click download access.
+      </div>
+    </div>
+
+    <h2>3. Uploaded Visual Assets & Media Register</h2>
+    <div class="asset-grid">
+      <div class="asset-card">
+        <img src="/assets/aistudio/interface_idea_1fa4c7b9.jpg" class="asset-img" alt="Interface Catalog">
+        <div class="asset-content">
+          <div class="asset-name">interface_idea_1fa4c7b9.jpg</div>
+          <div class="asset-role">Primary 8-Box Catalog Canvas (Boxes 1–8). Cropped to 1128px height.</div>
+          <span class="badge">298 KB • Active</span>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <img src="/assets/aistudio/bg_pattern.jpg" class="asset-img" alt="Vedic Pattern">
+        <div class="asset-content">
+          <div class="asset-name">bg_pattern.jpg</div>
+          <div class="asset-role">Traditional parchment mandala texture for Vedic ambiance.</div>
+          <span class="badge">185 KB • Active</span>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <img src="/assets/aistudio/chhatrapati_shivaji_maharaj.jpg" class="asset-img" alt="Shivaji Maharaj">
+        <div class="asset-content">
+          <div class="asset-name">chhatrapati_shivaji_maharaj.jpg</div>
+          <div class="asset-role">Historical portrait for Hero Spotlight & Bhosale lineage.</div>
+          <span class="badge">192 KB • Active</span>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <img src="/assets/aistudio/epic_bhosale_1.jpg" class="asset-img" alt="Raigad Coronation">
+        <div class="asset-content">
+          <div class="asset-name">epic_bhosale_1.jpg</div>
+          <div class="asset-role">Epic Chapter 1: The Coronation at Raigad Fort (1674 CE).</div>
+          <span class="badge">208 KB • Active</span>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <img src="/assets/aistudio/epic_bhosale_2.jpg" class="asset-img" alt="Ganimi Kava">
+        <div class="asset-content">
+          <div class="asset-name">epic_bhosale_2.jpg</div>
+          <div class="asset-role">Epic Chapter 2: Ganimi Kava (Guerrilla Warfare in Sahyadris).</div>
+          <span class="badge">215 KB • Active</span>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <img src="/assets/aistudio/epic_bhosale_3.jpg" class="asset-img" alt="Sindhudurg Naval">
+        <div class="asset-content">
+          <div class="asset-name">epic_bhosale_3.jpg</div>
+          <div class="asset-role">Epic Chapter 3: Maratha Naval Supremacy & Sea Forts.</div>
+          <span class="badge">201 KB • Active</span>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <img src="/assets/aistudio/maratha_forts_map.jpg" class="asset-img" alt="Forts Map">
+        <div class="asset-content">
+          <div class="asset-name">maratha_forts_map.jpg</div>
+          <div class="asset-role">Geospatial strategic cartography of Western Ghats fortresses.</div>
+          <span class="badge">245 KB • Active</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>4. Codebase Architecture & Technical Modifications Summary</h2>
+    <div style="font-size: 13.5px; line-height: 1.8;">
+      <p><strong>• ChapterCatalogView.tsx:</strong> Hotspot configuration for Boxes 1–8. Box 7 integrates Acharya Pingala's binary combinatorial meters (Chandaḥśāstra, 2^n verses). Box 8 integrates Rick Briggs' 1985 NASA AI paper on Panini's formal grammar. Boxes 9 & 10 removed and canvas truncated.</p>
+      <p><strong>• HeritageHero.tsx:</strong> Refined hero banner with authentic Devanagari typography ("भारतीय ज्ञान परंपरा"), removed cluttering chips, and integrated seamless audio-visual guides.</p>
+      <p><strong>• HouseOfBhosaleEpicView.tsx:</strong> Multi-chapter heritage chronicle covering the House of Bhosale, hill fortresses, naval warfare, and administrative principles.</p>
+      <p><strong>• Build Size Optimization:</strong> Eliminated ~80 MB of unneeded legacy image assets, compressed 23 PNG files to high-fidelity ~200 KB JPEGs, bringing total build size to 8.5 MB (96.6% below the 250 MB ceiling).</p>
+      <p><strong>• Compilation & Verification:</strong> Clean build with zero TypeScript errors or lint issues.</p>
+    </div>
+
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: #94a3b8;">
+      Exploring India's Knowledge System (IKS) • Project Dossier compiled for Sarthak S. Jadhav (sarthak.s.jadhav18@gmail.com)
+    </div>
+  </div>
+</body>
+</html>
